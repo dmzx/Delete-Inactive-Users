@@ -1,0 +1,65 @@
+<!-- INCLUDE overall_header.html -->
+
+<div id="unique_deleteinactiveusers"></div>
+
+<h1>{L_ACP_DELETE_INACTIVE_USERS_TITLE}</h1>
+
+<p><img src="https://img.shields.io/badge/{{ lang('Version') }}-{{ DELETE_INACTIVE_USERS_VERSION }}-green.svg?style=plastic" /></p>
+
+<form id="acp_deleteinactiveusers" method="post" action="{U_ACTION}">
+	<fieldset>
+		<legend>{L_ACP_DELETE_INACTIVE_USERS_SETTINGS}</legend>
+		<dl>
+			<dt>
+				<label for="deleteinactiveusers_allow">{L_DELETE_INACTIVE_USERS_ALLOW}{L_COLON}</label><br />
+				<span>{L_DELETE_INACTIVE_USERS_ALLOW_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<label><input type="radio" id="deleteinactiveusers_allow" class="radio" name="deleteinactiveusers_allow" value="1"<!-- IF DELETE_INACTIVE_USERS_ALLOW --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="deleteinactiveusers_allow" value="0"<!-- IF not DELETE_INACTIVE_USERS_ALLOW --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{L_DELETE_INACTIVE_USERS_TIME_VALUE}{L_COLON}</label><br />{L_DELETE_INACTIVE_USERS_TIME_VALUE_EXPLAIN}
+			</dt>
+			<dd>
+				<input type="number" name="deleteinactiveusers_gc" value="{DELETE_INACTIVE_USERS_GC}" size="4" min="1" title="{L_DELETE_INACTIVE_USERS_TIME_VALUE}" style="text-align:center;" /> {DELETE_INACTIVE_USERS_HOURS}
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{L_DELETE_INACTIVE_USERS_POSTS}{L_COLON}</label><br />{L_DELETE_INACTIVE_USERS_POSTS_EXPLAIN}
+			</dt>
+			<dd>
+				<input type="number" name="deleteinactiveusers_posts" value="{DELETE_INACTIVE_USERS_POSTS}" size="4" min="0" title="{L_DELETE_INACTIVE_USERS_POSTS}" style="text-align:center;" />
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label for="deleteinactiveusers_period">{L_DELETE_INACTIVE_USERS_INACTIVE_PERIOD}{L_COLON}</label><br />
+				<span>{L_DELETE_INACTIVE_USERS_INACTIVE_PERIOD_EXPLAIN}</span>
+			</dt>
+			<dd>
+				<select id="deleteinactiveusers_period" name="deleteinactiveusers_period">{S_DELETE_INACTIVE_USERS_PERIOD_SELECT}</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('DELETE_INACTIVE_USERS_GROUP_EXCEPTIONS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('DELETE_INACTIVE_USERS_GROUP_EXCEPTIONS_EXPLAIN') }}</span>
+			</dt>
+			<dd>
+				<select name="deleteinactiveusers_group_exceptions[]" size="10" multiple="multiple">
+				{{ DELETE_INACTIVE_USERS_GROUP_EXCEPTIONS }}
+				</select>
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset class="submit-buttons">
+		<legend>{L_SUBMIT}</legend>
+		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />
+	</fieldset>
+	{S_FORM_TOKEN}
+</form>
+
+<!-- INCLUDE overall_footer.html -->

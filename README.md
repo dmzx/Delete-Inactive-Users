@@ -1,5 +1,7 @@
 # Delete Inactive Users Extension
 
+[![Build Status](https://travis-ci.org/dmzx/Delete-Inactive-Users.svg?branch=master)](https://travis-ci.org/dmzx/Delete-Inactive-Users)
+
 ## Install
 
 1. Download the latest release.

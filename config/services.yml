@@ -1,0 +1,23 @@
+services:
+    dmzx.deleteinactiveusers.admin.controller:
+        class: dmzx\deleteinactiveusers\controller\admin_controller
+        arguments:
+            - '@config'
+            - '@template'
+            - '@log'
+            - '@user'
+            - '@request'
+            - '@dbal.conn'
+    dmzx.cron.task.core.deleteinactiveusers:
+        class: dmzx\deleteinactiveusers\cron\deleteinactiveusers_prune
+        arguments:
+            - '@user'
+            - '@config'
+            - '@dbal.conn'
+            - '@log'
+            - '%core.root_path%'
+            - '%core.php_ext%'
+        calls:
+            - [set_name, [cron.task.core.deleteinactiveusers]]
+        tags:
+            - { name: cron.task }
