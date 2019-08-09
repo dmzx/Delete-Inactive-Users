@@ -3,14 +3,14 @@
 	"type": "phpbb-extension",
 	"description": "Delete inactive users by cron, can set post count to a value.",
 	"homepage": "https://www.dmzx-web.net",
-	"version": "1.0.0",
-	"time": "2019-10-24",
+	"version": "1.0.1",
+	"time": "2019-08-09",
 	"keywords": [
 		"phpbb",
 		"extension",
 		"Delete Inactive Users"
 	],
-	"license": "GPL-2.0-only",
+	"license": "GPL-2.0",
 	"authors": [
 		{
 			"name": "dmzx",

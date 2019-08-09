@@ -128,6 +128,7 @@ class admin_controller
 		$this->template->assign_vars(array(
 			'U_ACTION'									=> $this->u_action,
 			'DELETE_INACTIVE_USERS_ALLOW'				=> $this->config['deleteinactiveusers_allow'],
+			'DELETE_INACTIVEUSERS_ENABLE_MES'			=> $this->config['deleteinactiveusers_enable_mes'],
 			'DELETE_INACTIVE_USERS_GC'			 		=> $this->config['deleteinactiveusers_gc'] / 3600,
 			'DELETE_INACTIVE_USERS_HOURS'				=> $this->user->lang('DELETE_INACTIVE_USERS_HOURS', $this->config['deleteinactiveusers_gc'] / 3600),
 			'DELETE_INACTIVE_USERS_POSTS'				=> $this->config['deleteinactiveusers_posts'],
@@ -142,6 +143,7 @@ class admin_controller
 		$deleteinactiveusers_group_exceptions = $this->request->variable('deleteinactiveusers_group_exceptions', array(0 => 0));
 
 		$this->config->set('deleteinactiveusers_allow', $this->request->variable('deleteinactiveusers_allow', 1));
+		$this->config->set('deleteinactiveusers_enable_mes', $this->request->variable('deleteinactiveusers_enable_mes', 0));
 		$this->config->set('deleteinactiveusers_gc', (int) $this->request->variable('deleteinactiveusers_gc', 0) * 3600);
 		$this->config->set('deleteinactiveusers_posts', (int) $this->request->variable('deleteinactiveusers_posts', ''));
 		$this->config->set('deleteinactiveusers_period', $this->request->variable('deleteinactiveusers_period', ''));

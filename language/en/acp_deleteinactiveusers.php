@@ -36,6 +36,8 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, [
 	'DELETE_INACTIVE_USERS_ALLOW'						=> 'Enable Delete Inactive Users',
 	'DELETE_INACTIVE_USERS_ALLOW_EXPLAIN'				=> 'If this option is set to Yes, cron on users will be On.',
+	'DELETE_INACTIVEUSERS_ENABLE_MES'					=> 'Enable register message',
+	'DELETE_INACTIVEUSERS_ENABLE_MES_EXPLAIN'			=> 'Show message after user is registered with details about post count and period.',
 	'DELETE_INACTIVE_USERS_TIME_VALUE'					=> 'Set time period for prune/delete users',
 	'DELETE_INACTIVE_USERS_TIME_VALUE_EXPLAIN'			=> 'This option will set the prune/delete timer. Default is 24 hours.',
 	'DELETE_INACTIVE_USERS_HOURS'	=> array(

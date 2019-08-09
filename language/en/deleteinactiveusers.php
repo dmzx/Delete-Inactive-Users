@@ -29,12 +29,15 @@ if (empty($lang) || !is_array($lang))
 // equally where a string contains only two placeholders which are used to wrap text
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 //
-// Some characters for use
+// Some characters you may want to copy&paste:
 // ’ » “ ” …
+//
 
 $lang = array_merge($lang, [
-	'ACP_DELETE_INACTIVE_USERS_TITLE'		=> 'Delete Inactive Users',
-	'ACP_DELETE_INACTIVE_USERS_SETTINGS'	=> 'Settings',
-	//Log
-	'LOG_DELETE_INACTIVE_USERS_SAVED'		=> '<strong>Delete Inactive Users settings saved.</strong>',
+	'DELETE_INACTIVE_USERS_MESSAGE_REG'		=> '<strong>%1$s</strong> post accounts will be deleted after <strong>%2$s</strong>. <br />Stay active on this forum and post minimum <strong>%3$s</strong> so your account won’t be deleted.',
+	'DELETE_INACTIVE_USERS_TOPIC'	=> [
+		1 => '%1$s topic',
+		2 => '%1$s topics',
+	],
+	'DELETE_INACTIVE_USERS_MESSAGE_RETURN'	=> '%sReturn to the index page%s',
 ]);

@@ -21,3 +21,12 @@ services:
             - [set_name, [cron.task.core.deleteinactiveusers]]
         tags:
             - { name: cron.task }
+    dmzx.deleteinactiveusers.listener:
+        class: dmzx\deleteinactiveusers\event\listener
+        arguments:
+            - '@language'
+            - '@config'
+            - '%core.root_path%'
+            - '%core.php_ext%'
+        tags:
+            - { name: event.listener }

@@ -42,7 +42,6 @@ class deleteinactiveusers_prune extends base
 	 * @param log_interface		$log
 	 * @param string			$root_path
 	 * @param string			$php_ext
-	 * @param config			$config
 	 */
 	public function __construct(
 		user $user,
