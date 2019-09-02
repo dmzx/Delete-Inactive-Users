@@ -51,7 +51,7 @@ class listener implements EventSubscriberInterface
 	static public function getSubscribedEvents()
 	{
 		return [
-			'core.ucp_register_register_after' => 'ucp_register_register_after',
+			'core.ucp_register_register_after' 		=> 'ucp_register_register_after',
 		];
 	}
 

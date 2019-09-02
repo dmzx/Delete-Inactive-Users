@@ -31,6 +31,16 @@
 		</dl>
 		<dl>
 			<dt>
+				<label for="deleteinactiveusers_enable_email">{{ lang('DELETE_INACTIVEUSERS_ENABLE_EMAIL') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('DELETE_INACTIVEUSERS_ENABLE_EMAIL_EXPLAIN') }}</span>
+			</dt>
+			<dd>
+				<label><input type="radio" id="deleteinactiveusers_enable_email" class="radio" name="deleteinactiveusers_enable_email" value="1"{% if DELETE_INACTIVEUSERS_ENABLE_EMAIL %} checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="deleteinactiveusers_enable_email" value="0"{% if not DELETE_INACTIVEUSERS_ENABLE_EMAIL %} checked="checked"{% endif %} /> {{ lang('NO') }}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
 				<label>{{ lang('DELETE_INACTIVE_USERS_TIME_VALUE') }}{{ lang('COLON') }}</label><br />{{ lang('DELETE_INACTIVE_USERS_TIME_VALUE_EXPLAIN') }}
 			</dt>
 			<dd>

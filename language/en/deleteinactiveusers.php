@@ -36,8 +36,8 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, [
 	'DELETE_INACTIVE_USERS_MESSAGE_REG'		=> '<strong>%1$s</strong> post accounts will be deleted after <strong>%2$s</strong>. <br />Stay active on this forum and post minimum <strong>%3$s</strong> so your account won’t be deleted.',
 	'DELETE_INACTIVE_USERS_TOPIC'	=> [
-		1 => '%1$s topic',
-		2 => '%1$s topics',
+		1 => '%1$s topic or post',
+		2 => '%1$s topics or posts',
 	],
 	'DELETE_INACTIVE_USERS_MESSAGE_RETURN'	=> '%sReturn to the index page%s',
 ]);

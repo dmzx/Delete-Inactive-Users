@@ -1,0 +1,5 @@
+Subject: Delete inactive account.
+
+Hi, {USERNAME} your account registered on {REGISTER_DATE} has been deleted because of inactive use.
+
+{EMAIL_SIG}

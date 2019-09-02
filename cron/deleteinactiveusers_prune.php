@@ -64,7 +64,7 @@ class deleteinactiveusers_prune extends base
 	{
 		$inactive_time = time() - ($this->config['deleteinactiveusers_period'] * 86400);
 
-		$sql = 'SELECT u.user_id, u.user_type, u.username, u.user_posts, u.user_regdate, u.user_lastvisit
+		$sql = 'SELECT u.user_id, u.user_type, u.username, u.user_posts, u.user_regdate, u.user_lastvisit, u.user_email, u.user_lang
 			FROM ' . USERS_TABLE . ' u
 			WHERE ' . $this->db->sql_in_set('group_id', explode(',', $this->config['deleteinactiveusers_group_exceptions']), true) . '
 				AND u.user_id <> ' . ANONYMOUS . '
@@ -74,11 +74,19 @@ class deleteinactiveusers_prune extends base
 				AND u.user_lastvisit < ' . $inactive_time;
 		$result = $this->db->sql_query($sql);
 
-		$expired_users = array();
+		$msg_list = $expired_users = [];
 
 		while ($row = $this->db->sql_fetchrow($result))
 		{
 			$expired_users[(int) $row['user_id']] = $row['username'];
+
+			$msg_list[$row['user_id']] = array(
+				'name' 		=> $row['username'],
+				'email' 	=> $row['user_email'],
+				'regdate' 	=> $row['user_regdate'],
+				'lang' 		=> $row['user_lang'],
+				'time' 		=> time()
+			);
 		}
 		$this->db->sql_freeresult($result);
 
@@ -89,9 +97,63 @@ class deleteinactiveusers_prune extends base
 				include($this->root_path . 'includes/functions_user.' . $this->php_ext);
 			}
 
+			$this->add_admin_log('LOG_DELETE_INACTIVE_USERS', [
+				count($expired_users),
+				implode($this->user->lang('COMMA_SEPARATOR'), $expired_users),
+			]);
+
+			if ($this->config['deleteinactiveusers_enable_email'] && sizeof($msg_list))
+			{
+				// Email the inactive and deleted users
+				$this->deleteinactiveusers_email($msg_list);
+			}
+
 			user_delete('remove', array_keys($expired_users));
 		}
 		$this->config->set('deleteinactiveusers_last_gc', time());
+	}
+
+	protected function add_admin_log($lang_key, $additional_data = [])
+	{
+		$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, $lang_key, false, $additional_data);
+	}
+
+	private function deleteinactiveusers_email($msg_list)
+	{
+		if ($this->config['deleteinactiveusers_enable_email'] && sizeof($msg_list))
+		{
+			if ($this->config['email_enable'])
+			{
+				if (!class_exists('messenger'))
+				{
+					include($this->phpbb_root_path . 'includes/functions_messenger.' . $this->php_ext);
+				}
+
+				$messenger = new \messenger(false);
+
+				foreach ($msg_list as $key => $value)
+				{
+					$messenger->template('@dmzx_deleteinactiveusers/deleteinactiveusers_email', $value['lang']);
+					$messenger->to($value['email'], $value['name']);
+					$messenger->headers('X-AntiAbuse: Board servername - ' . $this->config['server_name']);
+					$messenger->headers('X-AntiAbuse: User_id - ' . $key);
+					$messenger->headers('X-AntiAbuse: Username - ' . $value['name']);
+					$messenger->headers('X-AntiAbuse: User IP - ' . $this->user->ip);
+					$messenger->assign_vars([
+						'USERNAME'		=> htmlspecialchars_decode($value['name']),
+						'REGISTER_DATE'	=> date('g:ia \o\n l jS F Y', $value['regdate'])
+					]);
+					$messenger->send(NOTIFY_EMAIL);
+				}
+
+				$userlist = array_map(function ($entry)
+				{
+					return $entry['name'];
+				}, $msg_list);
+
+				$this->log->add('admin', $this->user->data['user_id'], $this->user->data['session_ip'], 'LOG_DELETE_INACTIVE_USERS_EMAIL', false, array(implode(', ', $userlist)));
+			}
+		}
 	}
 
 	public function is_runnable()
