@@ -37,6 +37,6 @@ $lang = array_merge($lang, [
 	'ACP_DELETE_INACTIVE_USERS_SETTINGS'	=> 'Settings',
 	//Log
 	'LOG_DELETE_INACTIVE_USERS_SAVED'		=> '<strong>Delete Inactive Users settings saved.</strong>',
-	'LOG_DELETE_INACTIVE_USERS'				=> '<strong>Delete %1$d Inactive Users</strong><br />» %2$s',
+	'LOG_DELETE_INACTIVE_USERS'				=> '<strong>Delete %1$d inactive users</strong><br />» %2$s',
 	'LOG_DELETE_INACTIVE_USERS_EMAIL'		=> '<strong>Sent email to inactive users that are deleted</strong><br />» %s',
 ]);

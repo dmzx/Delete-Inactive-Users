@@ -13,9 +13,9 @@ class deleteinactiveusers_v102 extends \phpbb\db\migration\migration
 {
 	static public function depends_on()
 	{
-		return array(
+		return [
 			'\dmzx\deleteinactiveusers\migrations\deleteinactiveusers_v101',
-		);
+		];
 	}
 
 	public function update_data()

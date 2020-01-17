@@ -1,4 +1,9 @@
-## Changelog
+## Delete Inactive Users Changelog
+
+### 1.0.3 - 2020-01-16
+
+- Update composer.json
+- Code update
 
 ### 1.0.2 - 2019-08-30
 
