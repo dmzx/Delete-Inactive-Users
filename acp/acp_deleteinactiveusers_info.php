@@ -13,12 +13,12 @@ class acp_deleteinactiveusers_info
 {
 	function module()
 	{
-		return array(
+		return [
 			'filename'	=> '\dmzx\deleteinactiveusers\acp\acp_deleteinactiveusers_module',
 			'title'		=> 'ACP_DELETE_INACTIVE_USERS_TITLE',
-			'modes'		=> array(
-				'settings'	=> array('title' => 'ACP_DELETE_INACTIVE_USERS_SETTINGS', 'auth' => 'ext_dmzx/deleteinactiveusers && acl_a_board', 'cat' => array('ACP_DELETE_INACTIVE_USERS_TITLE')),
-			),
-		);
+			'modes'		=> [
+				'settings'	=> ['title' => 'ACP_DELETE_INACTIVE_USERS_SETTINGS', 'auth' => 'ext_dmzx/deleteinactiveusers && acl_a_board', 'cat' => ['ACP_DELETE_INACTIVE_USERS_TITLE']],
+			],
+		];
 	}
 }

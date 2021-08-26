@@ -80,13 +80,13 @@ class deleteinactiveusers_prune extends base
 		{
 			$expired_users[(int) $row['user_id']] = $row['username'];
 
-			$msg_list[$row['user_id']] = array(
+			$msg_list[$row['user_id']] = [
 				'name' 		=> $row['username'],
 				'email' 	=> $row['user_email'],
 				'regdate' 	=> $row['user_regdate'],
 				'lang' 		=> $row['user_lang'],
 				'time' 		=> time()
-			);
+			];
 		}
 		$this->db->sql_freeresult($result);
 
@@ -151,7 +151,7 @@ class deleteinactiveusers_prune extends base
 					return $entry['name'];
 				}, $msg_list);
 
-				$this->log->add('admin', $this->user->data['user_id'], $this->user->data['session_ip'], 'LOG_DELETE_INACTIVE_USERS_EMAIL', false, array(implode(', ', $userlist)));
+				$this->log->add('admin', $this->user->data['user_id'], $this->user->data['session_ip'], 'LOG_DELETE_INACTIVE_USERS_EMAIL', false, [implode(', ', $userlist)]);
 			}
 		}
 	}

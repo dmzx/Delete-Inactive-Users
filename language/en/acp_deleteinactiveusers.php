@@ -42,10 +42,10 @@ $lang = array_merge($lang, [
 	'DELETE_INACTIVEUSERS_ENABLE_EMAIL_EXPLAIN'			=> 'Email inactive users with account deletion message.',
 	'DELETE_INACTIVE_USERS_TIME_VALUE'					=> 'Set time period for prune/delete users',
 	'DELETE_INACTIVE_USERS_TIME_VALUE_EXPLAIN'			=> 'This option will set the prune/delete timer. Default is 24 hours.',
-	'DELETE_INACTIVE_USERS_HOURS'	=> array(
+	'DELETE_INACTIVE_USERS_HOURS'	=> [
 		1 => 'Hour',
 		2 => 'Hours',
-	),
+	],
 	'DELETE_INACTIVE_USERS_POSTS'						=> 'Set Post count',
 	'DELETE_INACTIVE_USERS_POSTS_EXPLAIN'				=> 'Set post count for users. Default is 0.',
 	'DELETE_INACTIVE_USERS_INACTIVE_PERIOD'				=> 'Select period',

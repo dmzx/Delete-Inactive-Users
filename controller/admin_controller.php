@@ -125,7 +125,7 @@ class admin_controller
 		}
 		$this->db->sql_freeresult($result);
 
-		$this->template->assign_vars(array(
+		$this->template->assign_vars([
 			'U_ACTION'									=> $this->u_action,
 			'DELETE_INACTIVE_USERS_ALLOW'				=> $this->config['deleteinactiveusers_allow'],
 			'DELETE_INACTIVEUSERS_ENABLE_MES'			=> $this->config['deleteinactiveusers_enable_mes'],
@@ -136,12 +136,12 @@ class admin_controller
 			'DELETE_INACTIVE_USERS_VERSION'				=> $this->config['deleteinactiveusers_version'],
 			'DELETE_INACTIVE_USERS_GROUP_EXCEPTIONS' 	=> $deleteinactiveusers_group_exceptions_options,
 			'S_DELETE_INACTIVE_USERS_PERIOD_SELECT'		=> $s_options
-		));
+		]);
 	}
 
 	protected function set_options()
 	{
-		$deleteinactiveusers_group_exceptions = $this->request->variable('deleteinactiveusers_group_exceptions', array(0 => 0));
+		$deleteinactiveusers_group_exceptions = $this->request->variable('deleteinactiveusers_group_exceptions', [0 => 0]);
 
 		$this->config->set('deleteinactiveusers_allow', $this->request->variable('deleteinactiveusers_allow', 1));
 		$this->config->set('deleteinactiveusers_enable_mes', $this->request->variable('deleteinactiveusers_enable_mes', 0));
