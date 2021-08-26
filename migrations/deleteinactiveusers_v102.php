@@ -9,7 +9,9 @@
 
 namespace dmzx\deleteinactiveusers\migrations;
 
-class deleteinactiveusers_v102 extends \phpbb\db\migration\migration
+use phpbb\db\migration\migration;
+
+class deleteinactiveusers_v102 extends migration
 {
 	static public function depends_on()
 	{

@@ -9,7 +9,9 @@
 
 namespace dmzx\deleteinactiveusers\migrations;
 
-class deleteinactiveusers_install extends \phpbb\db\migration\migration
+use phpbb\db\migration\migration;
+
+class deleteinactiveusers_install extends migration
 {
 	public function update_data()
 	{
