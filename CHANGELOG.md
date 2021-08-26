@@ -1,5 +1,10 @@
 ## Delete Inactive Users Changelog
 
+### 1.0.4 - 2021-08-26
+
+- Code cleanup.
+- Code update.
+
 ### 1.0.3 - 2020-01-16
 
 - Update composer.json
@@ -9,7 +14,6 @@
 
 - Added admin log for deleted users.
 - Added option for email message to deleted users.
-
 
 ### 1.0.1 - 2019-08-09
 
