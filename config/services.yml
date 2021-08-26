@@ -8,7 +8,7 @@ services:
             - '@user'
             - '@request'
             - '@dbal.conn'
-    dmzx.cron.task.core.deleteinactiveusers:
+    dmzx.deleteinactiveusers.cron.task.core.deleteinactiveusers:
         class: 'dmzx\deleteinactiveusers\cron\deleteinactiveusers_prune'
         arguments:
             - '@user'
