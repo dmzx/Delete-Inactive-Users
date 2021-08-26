@@ -79,7 +79,7 @@ class listener implements EventSubscriberInterface
 				365 => 4
 			];
 
-			foreach($period_ary as $key => $value)
+			foreach ($period_ary as $key => $value)
 			{
 				$selected = $period[$this->config['deleteinactiveusers_period']];
 				$period_active = $period_ary[$selected];
