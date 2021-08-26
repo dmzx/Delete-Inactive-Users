@@ -93,7 +93,7 @@ class admin_controller
 		$period = [7 => 0, 30 => 1, 90 => 2, 180 => 3, 365 => 4];
 		$s_options = '';
 
-		foreach($period_ary as $key => $value)
+		foreach ($period_ary as $key => $value)
 		{
 			$selected = ($key == $period[$this->config['deleteinactiveusers_period']]) ? ' selected="selected"' : '';
 			$s_options .= '<option value="' . $times[$key]	. '"' . $selected . '>' . $period_ary[$key];
