@@ -1,6 +1,6 @@
 # Delete Inactive Users Extension
 
-[![Build Status](https://travis-ci.org/dmzx/Delete-Inactive-Users.svg?branch=master)](https://travis-ci.org/dmzx/Delete-Inactive-Users)
+[![Build Status](https://github.com/dmzx/Delete-Inactive-Users/workflows/Tests/badge.svg)](https://github.com/phpbb-extensions/dmzx/Delete-Inactive-Users)
 
 ## Install
 
